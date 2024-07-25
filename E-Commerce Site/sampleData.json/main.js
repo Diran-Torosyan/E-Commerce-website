@@ -62,5 +62,69 @@
         "price": 95,
         "in-stock": true,
         "item no.": 7
+    },
+    {
+        "name": "t-shirt",
+        "color": "black",
+        "gender": "men",
+        "price": 20,
+        "in-stock": true,
+        "item no.": 8
+    },
+    {
+        "name": "t-shirt",
+        "color": "other",
+        "gender": "unisex",
+        "price": 20,
+        "in-stock": true,
+        "item no.": 9
+    },
+    {
+        "name": "t-shirt",
+        "color": "white",
+        "gender": "men",
+        "price": 30,
+        "in-stock": true,
+        "item no.": 10
+    },
+    {
+        "name": "jeans",
+        "color": "black",
+        "gender": "men",
+        "price": 70,
+        "in-stock": true,
+        "item no.": 11
+    },
+    {
+        "name": "jacket",
+        "color": "green",
+        "gender": "men",
+        "price": 95,
+        "in-stock": true,
+        "item no.": 12
+    },
+    {
+        "name": "shorts",
+        "color": "red",
+        "gender": "men",
+        "price": 35,
+        "in-stock": true,
+        "item no.": 13
+    },
+    {
+        "name": "skirt",
+        "color": "brown",
+        "gender": "women",
+        "price": 65,
+        "in-stock": true,
+        "item no.": 14
+    },
+    {
+        "name": "trousers",
+        "color": "black",
+        "gender": "men",
+        "price": 55,
+        "in-stock": true,
+        "item no.": 15
     }
     ]
