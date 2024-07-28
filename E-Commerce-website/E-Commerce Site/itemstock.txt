@@ -1,0 +1,61 @@
+black shirt 
+29.99
+99
+solid color black shortsleeve shirt
+rainbow tie die
+29.99
+99
+rainbow color tie die shortsleeve shirt
+white longsleeve shirt
+29.99
+99
+solid color long sleeve white shirt
+green hoodie
+69.99
+99
+solig green color hoodie
+green jacket
+49.99
+99
+green zip up jacket
+light green jacket
+49.99
+99
+light green waterproof jacket zip up
+red skirt
+41.99
+99
+red solid color skirt
+grey skirt
+41.99
+99
+grey ankle long skirt with flower patterns
+red shorts
+45.99
+99
+red waterpark shorts 
+denim pants 
+59.99
+99
+denim pants with slight fade on knees
+black jeans
+59.99
+99
+black denim jeans
+black pants
+59.99
+99
+black pants
+black pants
+59.99
+99
+black dress pants
+black pants
+59.99
+99
+black dress pants
+pink blouse
+32.99
+99
+womens pink blouse
+
