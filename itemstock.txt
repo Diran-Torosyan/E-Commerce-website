@@ -1,0 +1,16 @@
+itemstock
+
+Tops:
+
+tshirt S 29.99 99
+buttonUp S 37.99 99
+hoodie S 69.99 99
+jacket S 49.99 99
+blouse S 32.99 99
+
+Bottoms:
+
+skirt S 41.99 99
+shorts S 45.99 99
+jeans S 59.99 99
+pants S 59.99 99
