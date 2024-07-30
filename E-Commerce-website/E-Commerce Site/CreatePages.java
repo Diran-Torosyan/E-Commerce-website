@@ -14,34 +14,34 @@ public class CreatePages extends JFrame {
     private JPanel items;
     private BufferedImage[] allImages;
     private Cart cart;
-    private Map<String, Double> itemPrices;
+    private Map<String, Product> products;
 
     // Constructor to set up home display
     public CreatePages() {
         cart = new Cart();  // Initialize the cart
-        initializeItemPrices(); // Initialize the item prices
+        initializeProducts(); // Initialize the products
         homeDisplay();
         itemDisplay();
     }
 
-    // Initialize the item prices
-    private void initializeItemPrices() {
-        itemPrices = new HashMap<>();
-        itemPrices.put("101.jpeg", 13.89);
-        itemPrices.put("102.jpeg", 17.88);
-        itemPrices.put("103.jpeg", 22.45);
-        itemPrices.put("104.jpeg", 30.99);
-        itemPrices.put("105.jpeg", 25.50);
-        itemPrices.put("106.jpeg", 15.75);
-        itemPrices.put("107.jpeg", 29.99);
-        itemPrices.put("108.jpeg", 19.45);
-        itemPrices.put("109.jpeg", 33.33);
-        itemPrices.put("110.jpeg", 27.89);
-        itemPrices.put("111.jpeg", 40.00);
-        itemPrices.put("112.jpeg", 49.99);
-        itemPrices.put("113.jpeg", 45.25);
-        itemPrices.put("114.jpeg", 38.50);
-        itemPrices.put("115.jpeg", 42.10);
+    // Initialize the products
+    private void initializeProducts() {
+        products = new HashMap<>();
+        products.put("101.jpeg", new Product("101", "Item 101", "Description of item 101", 13.89, "product pictures/101.jpeg"));
+        products.put("102.jpeg", new Product("102", "Item 102", "Description of item 102", 17.88, "product pictures/102.jpeg"));
+        products.put("103.jpeg", new Product("103", "Item 103", "Description of item 103", 22.45, "product pictures/103.jpeg"));
+        products.put("104.jpeg", new Product("104", "Item 104", "Description of item 104", 30.99, "product pictures/104.jpeg"));
+        products.put("105.jpeg", new Product("105", "Item 105", "Description of item 105", 25.50, "product pictures/105.jpeg"));
+        products.put("106.jpeg", new Product("106", "Item 106", "Description of item 106", 15.75, "product pictures/106.jpeg"));
+        products.put("107.jpeg", new Product("107", "Item 107", "Description of item 107", 29.99, "product pictures/107.jpeg"));
+        products.put("108.jpeg", new Product("108", "Item 108", "Description of item 108", 19.45, "product pictures/108.jpeg"));
+        products.put("109.jpeg", new Product("109", "Item 109", "Description of item 109", 33.33, "product pictures/109.jpeg"));
+        products.put("110.jpeg", new Product("110", "Item 110", "Description of item 110", 27.89, "product pictures/110.jpeg"));
+        products.put("111.jpeg", new Product("111", "Item 111", "Description of item 111", 40.00, "product pictures/111.jpeg"));
+        products.put("112.jpeg", new Product("112", "Item 112", "Description of item 112", 49.99, "product pictures/112.jpeg"));
+        products.put("113.jpeg", new Product("113", "Item 113", "Description of item 113", 45.25, "product pictures/113.jpeg"));
+        products.put("114.jpeg", new Product("114", "Item 114", "Description of item 114", 38.50, "product pictures/114.jpeg"));
+        products.put("115.jpeg", new Product("115", "Item 115", "Description of item 115", 42.10, "product pictures/115.jpeg"));
     }
 
     // Creates everything that will be used in the homepage as well as names the homepage
@@ -64,7 +64,7 @@ public class CreatePages extends JFrame {
         home.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.BLACK, Color.GRAY));
         home.setFocusable(true);
 
-        searchBar = new JTextField("search here");
+        searchBar = new JTextField("search");
         searchBar.setPreferredSize(new Dimension(300, 30));
         searchBar.setFocusable(true);
 
@@ -135,37 +135,32 @@ public class CreatePages extends JFrame {
     }
 
     void itemDisplay() {
-        File path = new File("product pictures");
-        File[] allFiles = path.listFiles();
+        items.removeAll();  // Clear any existing items
 
-        if (allFiles == null) {
-            System.out.println("No files found in the directory or directory does not exist.");
-            return;
-        }
-
-        allImages = new BufferedImage[allFiles.length];
-        JLabel[] label = new JLabel[allFiles.length];
-
-        for (int i = 0; i < allFiles.length; i++) {
+        for (Product product : products.values()) {
             try {
-                allImages[i] = ImageIO.read(allFiles[i]);
-                if (allImages[i] == null) {
-                    System.out.println("skipping file" + allFiles[i].getName() + "not valid image");
+                BufferedImage img = ImageIO.read(new File(product.getImagePath()));
+                if (img == null) {
+                    System.out.println("Skipping file: " + product.getImagePath() + " - Not a valid image");
                     continue;
                 }
-                label[i] = new JLabel();
 
-                ImageIcon icon = new ImageIcon(allImages[i].getScaledInstance(300, 300, Image.SCALE_SMOOTH));
-                label[i].setIcon(icon);
-                items.add(label[i]);
+                JLabel label = new JLabel();
+                ImageIcon icon = new ImageIcon(img.getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+                label.setIcon(icon);
+                label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                label.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        new ProductDetailsPage(product, cart);
+                    }
+                });
+                items.add(label);
 
-                String itemName = allFiles[i].getName();  // Example: using file name as item name
-                double itemPrice = itemPrices.getOrDefault(itemName, 0.0); // Get the price from the map or default to 0.0
                 JButton addButton = new JButton("Add to Cart");
-                addButton.addActionListener(e -> cart.addItem(itemName, itemPrice));
+                addButton.addActionListener(e -> cart.addItem(product.getName(), product.getPrice()));
                 items.add(addButton);
 
-                System.out.println("added image" + allFiles[i].getName());
+                System.out.println("Added image: " + product.getImagePath());
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -174,7 +169,7 @@ public class CreatePages extends JFrame {
 
         items.revalidate();
         items.repaint();
-        System.out.println("total images images" + allFiles.length);
+        System.out.println("Total images: " + products.size());
     }
 
     private void search() {
