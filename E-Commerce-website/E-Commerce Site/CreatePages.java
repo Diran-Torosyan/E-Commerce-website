@@ -16,6 +16,10 @@ public class CreatePages extends JFrame {
     private Cart cart;
     private Map<String, Product> products;
 
+    // Add filter checkboxes
+    private JCheckBox menFilter; // Updated filter option for Men's category
+    private JCheckBox womenFilter; // Updated filter option for Women's category
+
     // Constructor to set up home display
     public CreatePages() {
         cart = new Cart();  // Initialize the cart
@@ -27,21 +31,26 @@ public class CreatePages extends JFrame {
     // Initialize the products
     private void initializeProducts() {
         products = new HashMap<>();
-        products.put("101.jpeg", new Product("101", "Item 101", "Description of item 101", 13.89, "product pictures/101.jpeg"));
-        products.put("102.jpeg", new Product("102", "Item 102", "Description of item 102", 17.88, "product pictures/102.jpeg"));
-        products.put("103.jpeg", new Product("103", "Item 103", "Description of item 103", 22.45, "product pictures/103.jpeg"));
-        products.put("104.jpeg", new Product("104", "Item 104", "Description of item 104", 30.99, "product pictures/104.jpeg"));
-        products.put("105.jpeg", new Product("105", "Item 105", "Description of item 105", 25.50, "product pictures/105.jpeg"));
-        products.put("106.jpeg", new Product("106", "Item 106", "Description of item 106", 15.75, "product pictures/106.jpeg"));
-        products.put("107.jpeg", new Product("107", "Item 107", "Description of item 107", 29.99, "product pictures/107.jpeg"));
-        products.put("108.jpeg", new Product("108", "Item 108", "Description of item 108", 19.45, "product pictures/108.jpeg"));
-        products.put("109.jpeg", new Product("109", "Item 109", "Description of item 109", 33.33, "product pictures/109.jpeg"));
-        products.put("110.jpeg", new Product("110", "Item 110", "Description of item 110", 27.89, "product pictures/110.jpeg"));
-        products.put("111.jpeg", new Product("111", "Item 111", "Description of item 111", 40.00, "product pictures/111.jpeg"));
-        products.put("112.jpeg", new Product("112", "Item 112", "Description of item 112", 49.99, "product pictures/112.jpeg"));
-        products.put("113.jpeg", new Product("113", "Item 113", "Description of item 113", 45.25, "product pictures/113.jpeg"));
-        products.put("114.jpeg", new Product("114", "Item 114", "Description of item 114", 38.50, "product pictures/114.jpeg"));
-        products.put("115.jpeg", new Product("115", "Item 115", "Description of item 115", 42.10, "product pictures/115.jpeg"));
+        products.put("101.jpeg", new Product("101", "Black T-Shirt", "Description of item 101", 13.89, "product pictures/101.jpeg", "Men's"));
+        products.put("102.jpeg", new Product("102", "Tie-Die Shirt", "Description of item 102", 17.88, "product pictures/102.jpeg", "Women's"));
+        products.put("103.jpeg", new Product("103", "White T-Shirt", "Description of item 103", 22.45, "product pictures/103.jpeg", "Men's"));
+        products.put("104.jpeg", new Product("104", "Green Hoodie", "Description of item 104", 30.99, "product pictures/104.jpeg", "Men's"));
+        products.put("105.jpeg", new Product("105", "Green Jacket", "Description of item 105", 25.50, "product pictures/105.jpeg", "Men's"));
+        products.put("106.jpeg", new Product("106", "Green Jacket", "Description of item 106", 15.75, "product pictures/106.jpeg", "Women's"));
+        products.put("107.jpeg", new Product("107", "Red Skirt", "Description of item 107", 29.99, "product pictures/107.jpeg", "Women's"));
+        products.put("108.jpeg", new Product("108", "Brown Dress", "Description of item 108", 19.45, "product pictures/108.jpeg", "Women's"));
+        products.put("109.jpeg", new Product("109", "Red Swim Trunks", "Description of item 109", 33.33, "product pictures/109.jpeg", "Men's"));
+        products.put("110.jpeg", new Product("110", "Blue Jeans", "Description of item 110", 27.89, "product pictures/110.jpeg", "Women's"));
+        products.put("111.jpeg", new Product("111", "Black Jeans", "Description of item 111", 40.00, "product pictures/111.jpeg", "Men's"));
+        products.put("112.jpeg", new Product("112", "Black Slacks", "Description of item 112", 49.99, "product pictures/112.jpeg", "Men's"));
+        products.put("113.jpeg", new Product("113", "Black Slacks", "Description of item 113", 45.25, "product pictures/113.jpeg", "Men's"));
+        products.put("114.jpeg", new Product("114", "Black Pants", "Description of item 114", 38.50, "product pictures/114.jpeg", "Men's"));
+        products.put("115.jpeg", new Product("115", "Pink Shirt", "Description of item 115", 42.10, "product pictures/115.jpeg", "Women's"));
+
+        // Print products to verify initialization
+        for (Product product : products.values()) {
+            System.out.println(product.getName() + " - " + product.getCategory());
+        }
     }
 
     // Creates everything that will be used in the homepage as well as names the homepage
@@ -64,13 +73,19 @@ public class CreatePages extends JFrame {
         home.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.BLACK, Color.GRAY));
         home.setFocusable(true);
 
-        searchBar = new JTextField("search");
+        searchBar = new JTextField();
         searchBar.setPreferredSize(new Dimension(300, 30));
         searchBar.setFocusable(true);
 
-        JButton searchButton = new JButton("search");
+        searchButton = new JButton("search"); // Ensure this matches the private JButton searchButton field
         searchButton.setPreferredSize(new Dimension(100, 30));
-        searchButton.addActionListener(e -> search());
+        searchButton.addActionListener(e -> search()); // Update to call the new search method
+
+        // Add space for filter options in the bar
+        menFilter = new JCheckBox("Men's"); // Adding filter option for Men's category
+        womenFilter = new JCheckBox("Women's"); // Adding filter option for Women's category
+        menFilter.addActionListener(e -> applyFilters()); // Add action listener to Men's filter
+        womenFilter.addActionListener(e -> applyFilters()); // Add action listener to Women's filter
 
         JLabel space = new JLabel();
         space.setPreferredSize(new Dimension(300, 30));
@@ -101,6 +116,8 @@ public class CreatePages extends JFrame {
         bar.add(home);
         bar.add(searchBar);
         bar.add(searchButton);
+        bar.add(menFilter); // Adding Men's filter to the bar
+        bar.add(womenFilter); // Adding Women's filter to the bar
         bar.add(space);
         bar.add(cartButton);
         bar.add(checkoutButton);
@@ -173,8 +190,94 @@ public class CreatePages extends JFrame {
     }
 
     private void search() {
-        // Implement search functionality here
-        JOptionPane.showMessageDialog(this, "Search functionality to be implemented");
+        Map<String, Product> searchedProducts = searchProducts();
+        filterProducts(searchedProducts); // Apply filters to the searched products
+    }
+
+    private Map<String, Product> searchProducts() {
+        String query = searchBar.getText().toLowerCase(); // Get search query
+        Map<String, Product> searchedProducts = new HashMap<>(); // Create a new map for searched products
+
+        // Filter products based on search query
+        for (Product product : products.values()) {
+            if (product.getName().toLowerCase().contains(query)) {
+                searchedProducts.put(product.getImagePath(), product);
+            }
+        }
+
+        // Print the initial searched products
+        System.out.println("Products after search filter:");
+        for (Product product : searchedProducts.values()) {
+            System.out.println(product.getName() + " - " + product.getCategory());
+        }
+
+        return searchedProducts;
+    }
+
+    private void filterProducts(Map<String, Product> productsToFilter) {
+        // Apply filters based on checkboxes
+        if (menFilter.isSelected()) {
+            productsToFilter.values().removeIf(product -> !product.getCategory().equalsIgnoreCase("Men's"));
+        }
+
+        if (womenFilter.isSelected()) {
+            productsToFilter.values().removeIf(product -> !product.getCategory().equalsIgnoreCase("Women's"));
+        }
+
+        // Print the products after applying the filters
+        System.out.println("Products after applying filters:");
+        for (Product product : productsToFilter.values()) {
+            System.out.println(product.getName() + " - " + product.getCategory());
+        }
+
+        // Display the filtered products
+        displayFilteredProducts(productsToFilter);
+    }
+
+    private void applyFilters() {
+        Map<String, Product> searchedProducts = searchProducts(); // Apply search first
+        filterProducts(searchedProducts); // Then apply filters
+    }
+
+    private void displayFilteredProducts(Map<String, Product> filteredProducts) {
+        items.removeAll(); // Clear the current display
+
+        // Print the products being displayed
+        System.out.println("Displaying products:");
+        for (Product product : filteredProducts.values()) {
+            System.out.println(product.getName() + " - " + product.getCategory());
+
+            try {
+                BufferedImage img = ImageIO.read(new File(product.getImagePath()));
+                if (img == null) {
+                    System.out.println("Skipping file: " + product.getImagePath() + " - Not a valid image");
+                    continue;
+                }
+
+                JLabel label = new JLabel();
+                ImageIcon icon = new ImageIcon(img.getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+                label.setIcon(icon);
+                label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                label.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        new ProductDetailsPage(product, cart);
+                    }
+                });
+                items.add(label);
+
+                JButton addButton = new JButton("Add to Cart");
+                addButton.addActionListener(e -> cart.addItem(product.getName(), product.getPrice()));
+                items.add(addButton);
+
+                System.out.println("Added image: " + product.getImagePath());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        items.revalidate();
+        items.repaint();
     }
 
     private void viewCart() {
