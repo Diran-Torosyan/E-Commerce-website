@@ -1,0 +1,9 @@
+101 tshirt S 29.99 99
+102 buttonUp S 37.99 99
+103 hoodie S 69.99 99
+104 jacket S 49.99 99
+105 blouse S 32.99 99
+106 skirt S 41.99 99
+107 shorts S 45.99 99
+108 jeans S 59.99 99
+109 pants S 59.99 99
