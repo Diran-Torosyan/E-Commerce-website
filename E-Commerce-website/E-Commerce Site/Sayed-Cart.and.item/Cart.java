@@ -1,13 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.File;
-import java.io.BufferedReader;
-import java.io.FileReader;
-
 
 class Item{
     
@@ -80,33 +73,6 @@ public class Cart {
             System.out.println("Total Price: $" + getTotalPrice());
         }
     }
-    //save cart content to file
-    public void saveToFile(String userCart) {
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(userCart))) {
-            for (Item item : items) {
-                writer.write(item.getColor() + " " + item.getName() + ": " + item.getPrice());
-                writer.newLine();
-            }
-            
-            System.out.println("Cart saved to " + userCart);
-        }
-        catch (IOException e) {
-            System.err.println("Error saving cart: " + e.getMessage());
-        }
-    }
-    //get cart content from the file
-    public void getFromFile(String userCart) {
-
-        try(BufferedReader reader = new BufferedReader(new FileReader(userCart))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public double getTotalPrice() {
         double total = 0;
@@ -177,28 +143,17 @@ public static class Search{
         Item item1 = new Item("phone", 1599.99, "silver");
         Item item2 = new Item("tv", 999.99, "black");
         Item item3 = new Item("pc", 4999.99, "white");
-        Item item4 = new Item("keyboard", 119.99, "white");
-        Item item5 = new Item("mouse", 79.99, "silver");
-
         
         cart.addItem(item1);
         cart.addItem(item2);
         cart.addItem(item3);
-        cart.addItem(item4);
-        cart.addItem(item5);
-
+        
         cart.displayCart();
 
         cart.removeItem(item2);
-        cart.removeItem(item4);
 
-        System.out.println("Display cart after removing tv and keyboard");
+        System.out.println("Display cart after removing tv");
         cart.displayCart();
-
-        System.out.println("Save cart to file");
-        cart.saveToFile("SayedCart.txt");
-        System.out.println("Print cart from file");
-        cart.getFromFile("SayedCart.txt");
         
         Search search = new Search(cart.getItems());
 
