@@ -22,10 +22,10 @@ public class adminPage extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        JPanel bar = new JPanel();
-        bar.setPreferredSize(new Dimension(screenSize.width, 200));
-        bar.setBackground(Color.WHITE);
-        bar.setLayout(new BoxLayout(bar,BoxLayout.Y_AXIS));
+        JPanel adminBar = new JPanel();
+        adminBar.setPreferredSize(new Dimension(screenSize.width, 200));
+        adminBar.setBackground(Color.WHITE);
+        adminBar.setLayout(new BoxLayout(adminBar,BoxLayout.Y_AXIS));
 
         barTextField itemBar = new barTextField("Enter Item Name");
         itemBar.setPreferredSize(new Dimension(300, 100));
@@ -53,12 +53,12 @@ public class adminPage extends JFrame {
         searchButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         searchButton.addActionListener(e -> change());
 
-        bar.add(itemBar);
-        bar.add(inventoryBar);
-        bar.add(saleBar);
-        bar.add(priceBar);
-        bar.add(searchButton);
-        add(bar,BorderLayout.CENTER);
+        adminBar.add(itemBar);
+        adminBar.add(inventoryBar);
+        adminBar.add(saleBar);
+        adminBar.add(priceBar);
+        adminBar.add(searchButton);
+        add(adminBar,BorderLayout.CENTER);
     }
     private void change() {
         // Implement search functionality here

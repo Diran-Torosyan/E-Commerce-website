@@ -205,7 +205,6 @@ public class CreatePages extends JFrame {
     private void login() {
         // Implement logout functionality here
         loginPage frame = new loginPage();
-        
         frame.setVisible(true);
         
     }

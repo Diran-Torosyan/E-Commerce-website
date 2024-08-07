@@ -20,10 +20,10 @@ public class loginPage extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        JPanel bar = new JPanel();
-        bar.setPreferredSize(new Dimension(200, 200));
-        bar.setBackground(Color.WHITE);
-        bar.setLayout(new BoxLayout(bar,BoxLayout.Y_AXIS));
+        JPanel loginBar = new JPanel();
+        loginBar.setPreferredSize(new Dimension(200, 200));
+        loginBar.setBackground(Color.WHITE);
+        loginBar.setLayout(new BoxLayout(loginBar,BoxLayout.Y_AXIS));
 
         barTextField usernameBar = new barTextField("Enter Username");
         usernameBar.setPreferredSize(new Dimension(50, 20));
@@ -34,14 +34,14 @@ public class loginPage extends JFrame {
         passwordBar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 
-        bar.add(usernameBar);
-        bar.add(passwordBar);
-        add(bar,BorderLayout.CENTER);
+        loginBar.add(usernameBar);
+        loginBar.add(passwordBar);
+        add(loginBar,BorderLayout.CENTER);
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             loginPage frame = new loginPage();
-            frame.setVisible(false);
+            frame.setVisible(true);
         });
     }
 }
