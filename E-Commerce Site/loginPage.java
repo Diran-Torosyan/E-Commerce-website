@@ -10,6 +10,7 @@ import java.awt.event.FocusListener;
 
 
 public class loginPage extends JFrame {
+   
     public loginPage() {
         loginDisplay();
     }
@@ -40,7 +41,7 @@ public class loginPage extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             loginPage frame = new loginPage();
-            frame.setVisible(true);
+            frame.setVisible(false);
         });
     }
 }

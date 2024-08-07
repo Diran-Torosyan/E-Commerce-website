@@ -90,6 +90,13 @@ public class CreatePages extends JFrame {
         checkoutButton.setFocusable(true);
         checkoutButton.addActionListener(e -> checkout());
 
+        JButton loginButton = new JButton("Login");
+        loginButton.setForeground(Color.GRAY);
+        loginButton.setPreferredSize(new Dimension(80, 30));
+        loginButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.BLACK, Color.GRAY));
+        loginButton.setFocusable(true);
+        loginButton.addActionListener(e -> login());
+
         JButton logoutButton = new JButton("Logout");
         logoutButton.setForeground(Color.GRAY);
         logoutButton.setPreferredSize(new Dimension(80, 30));
@@ -105,6 +112,7 @@ public class CreatePages extends JFrame {
         bar.add(cartButton);
         bar.add(checkoutButton);
         bar.add(logoutButton);
+        bar.add(loginButton);
 
         add(bar, BorderLayout.NORTH);
         items = new JPanel();
@@ -192,6 +200,14 @@ public class CreatePages extends JFrame {
     private void checkout() {
         // Implement checkout functionality here
         JOptionPane.showMessageDialog(this, "Checkout functionality to be implemented");
+    }
+
+    private void login() {
+        // Implement logout functionality here
+        loginPage frame = new loginPage();
+        
+        frame.setVisible(true);
+        
     }
 
     private void logout() {
