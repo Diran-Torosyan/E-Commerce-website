@@ -108,6 +108,13 @@ public class CreatePages extends JFrame {
         checkoutButton.setFocusable(true);
         checkoutButton.addActionListener(e -> checkout());
 
+        JButton loginButton = new JButton("Login");
+        loginButton.setForeground(Color.GRAY);
+        loginButton.setPreferredSize(new Dimension(80, 30));
+        loginButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.BLACK, Color.GRAY));
+        loginButton.setFocusable(true);
+        loginButton.addActionListener(e -> login());
+
         JButton logoutButton = new JButton("Logout");
         logoutButton.setForeground(Color.GRAY);
         logoutButton.setPreferredSize(new Dimension(80, 30));
@@ -124,7 +131,8 @@ public class CreatePages extends JFrame {
         bar.add(space);
         bar.add(cartButton);
         bar.add(checkoutButton);
-        bar.add(logoutButton);
+        bar.add(loginButton); // Add login button
+        bar.add(logoutButton); // Add logout button
 
         add(bar, BorderLayout.NORTH);
         items = new JPanel();
@@ -298,6 +306,12 @@ public class CreatePages extends JFrame {
             mex.printStackTrace();
             JOptionPane.showMessageDialog(this, "Failed to send email: " + mex.getMessage());
         }
+    }
+
+    private void login() {
+        // Implement login functionality here
+        loginPage frame = new loginPage();
+        frame.setVisible(true);
     }
 
     private void logout() {
