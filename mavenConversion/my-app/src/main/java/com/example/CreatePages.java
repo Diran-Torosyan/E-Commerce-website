@@ -202,12 +202,14 @@ public class CreatePages extends JFrame {
     }
 
     private void search() {
+        System.out.println("Search button clicked");
         Map<String, Product> searchedProducts = searchProducts();
         filterProducts(searchedProducts); // Apply filters to the searched products
     }
 
     private Map<String, Product> searchProducts() {
         String query = searchBar.getText().toLowerCase(); // Get search query
+        System.out.println("Search query: " + query);
         Map<String, Product> searchedProducts = new HashMap<>(); // Create a new map for searched products
 
         // Filter products based on search query
@@ -247,6 +249,7 @@ public class CreatePages extends JFrame {
     }
 
     private void applyFilters() {
+        System.out.println("Applying filters");
         Map<String, Product> searchedProducts = searchProducts(); // Apply search first
         filterProducts(searchedProducts); // Then apply filters
     }
