@@ -23,15 +23,17 @@ public class User {
 
     private int getLastCustomerId() {
         int lastId = 0;
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("customer.txt")))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("E-Commerce-website/E-Commerce-website/mavenConversion/my-app/src/main/resources/customer.txt")))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.matches("\\d+")) {
+                try {
                     lastId = Integer.parseInt(line);
+                } catch (NumberFormatException e) {
+                    // This line is not a number, continue reading
                 }
                 // Skip the remaining lines of the current customer entry
                 for (int i = 0; i < 8; i++) {
-                    br.readLine();
+                    if (br.readLine() == null) break;
                 }
             }
         } catch (IOException e) {
@@ -41,7 +43,7 @@ public class User {
     }
 
     public void customerInfo() {
-        File customerFile = new File("E-Commerce-website/mavenConversion/my-app/src/main/resources/customer.txt");
+        File customerFile = new File("E-Commerce-website/E-Commerce-website/mavenConversion/my-app/src/main/resources/customer.txt");
         try {
             // Ensure the directory exists (if not, create it)
             customerFile.getParentFile().mkdirs();
@@ -101,7 +103,7 @@ public class User {
     }
 
     public void customerLogin() {
-        File loginFile = new File("E-Commerce-website/mavenConversion/my-app/src/main/resources/login.txt");
+        File loginFile = new File("E-Commerce-website/E-Commerce-website/mavenConversion/my-app/src/main/resources/login.txt");
         try {
             // Ensure the directory exists
             loginFile.getParentFile().mkdirs();
@@ -124,7 +126,7 @@ public class User {
     }
 
     public void loginCheck() {
-        File loginFile = new File("E-Commerce-website/mavenConversion/my-app/src/main/resources/login.txt");
+        File loginFile = new File("E-Commerce-website/E-Commerce-website/mavenConversion/my-app/src/main/resources/login.txt");
         try {
             Scanner cu = new Scanner(loginFile);
             while (cu.hasNext()) {
@@ -150,7 +152,7 @@ public class User {
         System.out.println("Enter password:");
         String password = sc.nextLine();
 
-        File adminFile = new File("E-Commerce-website/mavenConversion/my-app/src/main/resources/admin.txt");
+        File adminFile = new File("E-Commerce-website/E-Commerce-website/mavenConversion/my-app/src/main/resources/admin.txt");
         try {
             Scanner ad = new Scanner(adminFile);
             while (ad.hasNext()) {
