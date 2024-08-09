@@ -1,8 +1,14 @@
 package com.example;
 
-import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class User {
 
@@ -52,6 +58,7 @@ public class User {
             BufferedWriter bw = new BufferedWriter(new FileWriter(customerFile, true));
             Scanner scan = new Scanner(System.in);
 
+            bw.newLine();
             bw.write(custNum + "\n");
 
             System.out.println("First Name:");
@@ -70,11 +77,9 @@ public class User {
                 System.out.println("Phone Number: ");
                 phoneNumber = scan.nextInt();
                 scan.nextLine(); // consume the newline character
-                bw.write(phoneNumber + "\n");
+                bw.write(Integer.toString(phoneNumber) + "\n");
             } catch (InputMismatchException e) {
                 scan.nextLine(); // clear the invalid input
-                System.out.println("Invalid phone number input.");
-                bw.write("Invalid phone number\n");
             }
 
             System.out.println("Address: ");
@@ -92,7 +97,7 @@ public class User {
             System.out.println("Zipcode: ");
             zipcode = scan.nextInt();
             scan.nextLine(); // consume the newline character
-            bw.write(zipcode + "\n");
+            bw.write(String.valueOf(zipcode));
 
             scan.close();
             bw.close();
