@@ -125,7 +125,7 @@ public class CreatePages extends JFrame {
         loginButton.setFocusable(true);
         loginButton.addActionListener(e -> login());
 
-        JButton logoutButton = new JButton("Logout");
+        JButton logoutButton = new JButton("New User");
         logoutButton.setForeground(Color.GRAY);
         logoutButton.setPreferredSize(new Dimension(80, 30));
         logoutButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, Color.BLACK, Color.GRAY));
@@ -306,7 +306,8 @@ public class CreatePages extends JFrame {
     }
 
     private void logout() {
-        JOptionPane.showMessageDialog(this, "Logout functionality to be implemented");
+        loginPage frame = new loginPage();
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {

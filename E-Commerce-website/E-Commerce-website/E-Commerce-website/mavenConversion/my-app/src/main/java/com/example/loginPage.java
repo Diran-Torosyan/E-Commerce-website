@@ -29,9 +29,16 @@ public class loginPage extends JFrame {
         passwordBar.setPreferredSize(new Dimension(50, 20));
         passwordBar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        JButton EnterButton = new JButton("Enter");
+        EnterButton.addActionListener(e -> {
+            
+            this.dispose();
+        });
+
 
         loginBar.add(usernameBar);
         loginBar.add(passwordBar);
+        loginBar.add(EnterButton);
         add(loginBar,BorderLayout.CENTER);
     }
     public static void main(String[] args) {

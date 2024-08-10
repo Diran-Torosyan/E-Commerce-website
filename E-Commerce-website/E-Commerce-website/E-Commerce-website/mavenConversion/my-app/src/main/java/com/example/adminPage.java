@@ -41,9 +41,7 @@ public class adminPage extends JFrame {
         priceBar.setPreferredSize(new Dimension(300, 100));
         priceBar.setAlignmentX(Component.CENTER_ALIGNMENT);
     
-        //if there is sale//
-        //price//
-        //maybe tracking sales//
+        
 
         JButton searchButton = new JButton("commit changes");
         searchButton.setPreferredSize(new Dimension(100, 100));
