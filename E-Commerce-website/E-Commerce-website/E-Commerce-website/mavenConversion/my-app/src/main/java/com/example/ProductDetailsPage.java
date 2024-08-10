@@ -21,7 +21,7 @@ public class ProductDetailsPage extends JFrame {
         ImageIcon productImage = new ImageIcon(getClass().getClassLoader().getResource(product.getImagePath()));
         
         // Resize the image to fit a larger size (e.g., 800x800)
-        Image scaledImage = productImage.getImage().getScaledInstance(800, 800, Image.SCALE_SMOOTH);
+        Image scaledImage = productImage.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
         productImage = new ImageIcon(scaledImage);
 
         // Handle case where image might not be found

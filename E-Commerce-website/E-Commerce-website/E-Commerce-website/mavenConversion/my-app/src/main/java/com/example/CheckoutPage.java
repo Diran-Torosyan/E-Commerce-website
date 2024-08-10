@@ -1,10 +1,12 @@
 package com.example;
 
+
 import javax.swing.*;
 import java.awt.*;
 
+
 public class CheckoutPage extends JFrame {
-    public CheckoutPage( Cart cart) {
+    public CheckoutPage(Cart cart) {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setTitle("Checkout Page");
@@ -32,16 +34,22 @@ public class CheckoutPage extends JFrame {
         cardCVBar.setPreferredSize(new Dimension(300, 100));
         cardCVBar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        JButton EnterButton = new JButton("Enter");
+        EnterButton.addActionListener(e -> {
+            
+            this.dispose();
+        });
+
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             this.dispose();
         });
 
-
         add(cartPanel,BorderLayout.CENTER);
-        CheckoutBar.add(backButton);
+        CheckoutBar.add(backButton,BorderLayout.CENTER);
         CheckoutBar.add(cardNumBar);
         CheckoutBar.add(cardCVBar);
+        CheckoutBar.add(EnterButton);
         add(CheckoutBar,BorderLayout.SOUTH);
 
 
@@ -49,4 +57,5 @@ public class CheckoutPage extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
+    
 }

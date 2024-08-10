@@ -53,6 +53,7 @@ public class CreatePages extends JFrame {
                     String description = productDetails[2].replace("\"", "");
                     double price = Double.parseDouble(productDetails[3]);
                     String imagePath = productDetails[4];
+                    
                     String category = productDetails[5];
                     products.put(imagePath, new Product(id, name, description, price, imagePath, category));
                 } else {
@@ -256,8 +257,8 @@ public class CreatePages extends JFrame {
     }
 
     private void checkout() {
-        JOptionPane.showMessageDialog(this, "Checkout functionality started. Please wait");
-        sendEmailReceipt();
+        new CheckoutPage(cart);
+        //sendEmailReceipt();
     }
 
     private void sendEmailReceipt() {
