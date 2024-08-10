@@ -1,0 +1,30 @@
+101 "Outdoor Jacket" "High-quality outdoor jacket perfect for hiking and camping. Made with durable, weather-resistant materials." 85.99 product_pictures/101.jpeg Men's
+102 "Thermal Sweater" "A comfortable and warm thermal sweater, ideal for chilly outdoor adventures." 60.50 product_pictures/102.jpeg Women's
+103 "Hiking Pants" "Rugged and flexible hiking pants designed for maximum mobility on the trail." 72.30 product_pictures/103.jpeg Men's
+104 "Outdoor Beanie" "Stylish outdoor beanie made of warm, high-quality material suitable for cold weather." 25.99 product_pictures/104.jpeg Unisex
+105 "Windbreaker Jacket" "Lightweight windbreaker jacket made with water-resistant and breathable fabric, perfect for outdoor activities." 69.99 product_pictures/105.jpeg Unisex
+106 "Hiking Boots" "Durable hiking boots designed for rugged terrain, featuring strong support and excellent grip." 110.75 product_pictures/106.jpeg Men's
+107 "Outdoor Scarf" "Warm outdoor scarf made of soft, insulating material, perfect for cold weather." 30.99 product_pictures/107.jpeg Women's
+108 "Outdoor Gloves" "Stylish outdoor gloves made with durable, weather-resistant materials to keep hands warm and protected." 35.50 product_pictures/108.jpeg Unisex
+109 "Outdoor Backpack" "Rugged outdoor backpack with durable materials, multiple compartments, and adjustable straps." 89.95 product_pictures/109.jpeg Unisex
+110 "Outdoor Cap" "Lightweight outdoor cap made of breathable and comfortable material, perfect for sun protection during outdoor activities." 20.99 product_pictures/110.jpeg Unisex
+111 "Insulated Pants" "Insulated outdoor pants designed for cold weather activities, featuring thick insulation and a durable exterior." 78.50 product_pictures/111.jpeg Men's
+112 "Fleece Jacket" "Soft fleece outdoor jacket designed for warmth and comfort during cold weather, made with high-quality fleece material." 65.99 product_pictures/112.jpeg Women's
+113 "Outdoor Hoodie" "Stylish outdoor hoodie designed for both comfort and functionality, made with durable and breathable material." 55.99 product_pictures/113.jpeg Men's
+114 "Running Shoes" "Lightweight outdoor running shoes with a breathable mesh upper and durable sole for good traction." 49.99 product_pictures/114.jpeg Unisex
+115 "Waterproof Hiking Boots" "Waterproof hiking boots designed for tough terrains, featuring a waterproof exterior and reinforced soles." 125.00 product_pictures/115.jpeg Men's
+116 "Thermal Leggings" "Thermal outdoor leggings designed for cold weather activities, featuring thermal insulation and a comfortable fit." 40.99 product_pictures/116.jpeg Women's
+117 "Outdoor Vest" "Lightweight outdoor vest designed for layering during outdoor activities, featuring breathable and water-resistant fabric." 55.00 product_pictures/117.jpeg Unisex
+118 "Cargo Pants" "Durable outdoor cargo pants designed for rugged activities, featuring multiple pockets, reinforced stitching, and a tough fabric." 68.00 product_pictures/118.jpeg Men's
+119 "Trekking Sandals" "Outdoor trekking sandals designed for adventures, featuring a durable sole, adjustable straps, and breathable materials." 45.00 product_pictures/119.jpeg Unisex
+120 "Outdoor Hat with Ear Flaps" "Warm outdoor hat with ear flaps, designed for cold weather with thick insulation and soft lining for maximum warmth." 35.50 product_pictures/120.jpeg Unisex
+121 "Thermal Socks" "Outdoor thermal socks designed for cold weather activities, featuring thick insulation and moisture-wicking materials." 15.99 product_pictures/121.jpeg Unisex
+122 "Fleece Blanket" "Warm outdoor fleece blanket designed for camping and outdoor activities, featuring soft and thick fleece material for warmth and comfort." 30.50 product_pictures/122.jpeg Unisex
+123 "Outdoor Work Gloves" "Durable outdoor work gloves designed for heavy-duty outdoor work, featuring reinforced stitching, padded palms, and tough fabric." 25.99 product_pictures/123.jpeg Unisex
+124 "Outdoor Sweater" "Warm outdoor sweater designed for cold weather, featuring thick insulating material and a comfortable fit." 55.99 product_pictures/124.jpeg Unisex
+125 "Outdoor Poncho" "Durable outdoor poncho designed for rain protection, featuring waterproof material and a hood." 39.99 product_pictures/125.jpeg Unisex
+126 "Hiking Shorts" "Outdoor hiking shorts designed for warm weather, featuring lightweight and breathable fabric with multiple pockets for convenience." 35.50 product_pictures/126.jpeg Men's
+127 "Rain Jacket" "Lightweight outdoor rain jacket designed for wet weather protection, featuring waterproof and breathable fabric, with a hood and adjustable cuffs." 59.99 product_pictures/127.jpeg Unisex
+128 "Insulated Mittens" "Outdoor insulated mittens designed for extreme cold weather, featuring thick insulation, waterproof exterior, and fleece lining." 29.99 product_pictures/128.jpeg Unisex
+129 "Hiking Shoes" "Lightweight outdoor hiking shoes designed for rugged terrain, featuring durable soles, breathable mesh upper, and good traction." 79.99 product_pictures/129.jpeg Unisex
+130 "Winter Boots" "Outdoor winter boots designed for snow and extreme cold weather, featuring a waterproof exterior, thick insulation, and strong traction." 95.00 product_pictures/130.jpeg Unisex
