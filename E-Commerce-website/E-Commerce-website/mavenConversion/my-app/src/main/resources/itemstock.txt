@@ -1,0 +1,30 @@
+101,"Outdoor Jacket","High-quality outdoor jacket perfect for hiking and camping.",85.99,"product_pictures/101.jpeg","Men's",72,88,99,44,false,0.0
+102,"Thermal Sweater","A comfortable and warm thermal sweater.",60.50,"product_pictures/102.jpeg","Women's",50,60,70,80,true,55.0
+103,"Hiking Pants","Rugged and flexible hiking pants designed for maximum mobility on the trail.",72.30,"product_pictures/103.jpeg","Men's",30,45,60,20,false,0.0
+104,"Outdoor Beanie","Stylish outdoor beanie made of warm high-quality material.",25.99,"product_pictures/104.jpeg","Unisex",40,50,60,70,true,20.99
+105,"Windbreaker Jacket","Lightweight windbreaker jacket made with water-resistant and breathable fabric.",69.99,"product_pictures/105.jpeg","Unisex",60,70,80,90,false,0.0
+106,"Hiking Boots","Durable hiking boots designed for rugged terrain.",110.75,"product_pictures/106.jpeg","Men's",35,40,50,30,true,95.0
+107,"Outdoor Scarf","Warm outdoor scarf made of soft insulating material.",30.99,"product_pictures/107.jpeg","Women's",20,25,30,15,false,0.0
+108,"Outdoor Gloves","Stylish outdoor gloves made with durable weather-resistant materials.",35.50,"product_pictures/108.jpeg","Unisex",50,55,60,45,true,30.0
+109,"Outdoor Backpack","Rugged outdoor backpack with durable materials.",89.95,"product_pictures/109.jpeg","Unisex",25,30,35,20,false,0.0
+110,"Outdoor Cap","Lightweight outdoor cap made of breathable and comfortable material.",20.99,"product_pictures/110.jpeg","Unisex",15,20,25,10,true,18.0
+111,"Insulated Pants","Insulated outdoor pants designed for cold weather activities.",78.50,"product_pictures/111.jpeg","Men's",40,45,50,35,false,0.0
+112,"Fleece Jacket","Soft fleece outdoor jacket designed for warmth and comfort.",65.99,"product_pictures/112.jpeg","Women's",50,60,70,80,true,60.0
+113,"Outdoor Hoodie","Stylish outdoor hoodie designed for both comfort and functionality.",55.99,"product_pictures/113.jpeg","Men's",20,25,30,15,false,0.0
+114,"Running Shoes","Lightweight outdoor running shoes.",49.99,"product_pictures/114.jpeg","Unisex",35,40,45,25,true,44.99
+115,"Waterproof Hiking Boots","Waterproof hiking boots designed for tough terrains.",125.00,"product_pictures/115.jpeg","Men's",20,25,30,15,false,0.0
+116,"Thermal Leggings","Thermal outdoor leggings designed for cold weather activities.",40.99,"product_pictures/116.jpeg","Women's",60,70,80,90,true,35.0
+117,"Outdoor Vest","Lightweight outdoor vest designed for layering.",55.00,"product_pictures/117.jpeg","Unisex",30,40,50,20,false,0.0
+118,"Cargo Pants","Durable outdoor cargo pants designed for rugged activities.",68.00,"product_pictures/118.jpeg","Men's",20,30,40,25,true,60.0
+119,"Trekking Sandals","Outdoor trekking sandals designed for adventures.",45.00,"product_pictures/119.jpeg","Unisex",25,30,35,20,false,0.0
+120,"Outdoor Hat with Ear Flaps","Warm outdoor hat with ear flaps designed for cold weather.",35.50,"product_pictures/120.jpeg","Unisex",40,50,60,30,true,30.0
+121,"Thermal Socks","Outdoor thermal socks designed for cold weather activities.",15.99,"product_pictures/121.jpeg","Unisex",50,60,70,40,false,0.0
+122,"Fleece Blanket","Warm outdoor fleece blanket designed for camping.",30.50,"product_pictures/122.jpeg","Unisex",30,40,50,25,true,27.5
+123,"Outdoor Work Gloves","Durable outdoor work gloves designed for heavy-duty outdoor work.",25.99,"product_pictures/123.jpeg","Unisex",20,25,30,15,false,0.0
+124,"Outdoor Sweater","Warm outdoor sweater designed for cold weather.",55.99,"product_pictures/124.jpeg","Unisex",40,45,50,35,true,50.0
+125,"Outdoor Poncho","Durable outdoor poncho designed for rain protection.",39.99,"product_pictures/125.jpeg","Unisex",30,35,40,20,false,0.0
+126,"Hiking Shorts","Outdoor hiking shorts designed for warm weather.",35.50,"product_pictures/126.jpeg","Men's",25,30,35,20,true,30.99
+127,"Rain Jacket","Lightweight outdoor rain jacket designed for wet weather protection.",59.99,"product_pictures/127.jpeg","Unisex",30,40,50,20,false,0.0
+128,"Insulated Mittens","Outdoor insulated mittens designed for extreme cold weather.",29.99,"product_pictures/128.jpeg","Unisex",20,25,30,15,true,25.0
+129,"Hiking Shoes","Lightweight outdoor hiking shoes designed for rugged terrain.",79.99,"product_pictures/129.jpeg","Unisex",15,20,25,10,false,0.0
+130,"Winter Boots","Outdoor winter boots designed for snow and extreme cold weather.",95.00,"product_pictures/130.jpeg","Unisex",10,15,20,10,true,85.0
