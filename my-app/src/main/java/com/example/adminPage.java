@@ -1,7 +1,7 @@
 /*Provide a complete summary for each module/class header: include
 a) CheckoutPage
 b) Aug 13,2024
-c) Diran Torosyan
+c) @author Diran Torosyan
 d) creates the admin page and allows for the admin to see it after login, and adjust the values of items as needed, such as price, 
 inventory, etc. also allows for the modification of items
 
@@ -16,10 +16,15 @@ import java.awt.event.FocusListener;
 
 
 public class adminPage extends JFrame {
-    
+    /*
+     * creates instance of admin display
+     */
     public adminPage() {
         adminDisplay();
     }
+    /*
+     * creates the buttons and fields on the page
+     */
     void adminDisplay() {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -66,6 +71,9 @@ public class adminPage extends JFrame {
         adminBar.add(searchButton);
         add(adminBar,BorderLayout.CENTER);
     }
+    /*
+     * will implement the changes for the item
+     */
     private void change() {
         // Implement search functionality here
         JOptionPane.showMessageDialog(this, "Change functionality to be implemented");
@@ -78,6 +86,9 @@ public class adminPage extends JFrame {
         });
     }
 }
+/*
+ * creates the standard for a bar text field that will take user input
+ */
 class barTextField extends JTextField implements FocusListener {
     private String placeHolder;
     private boolean showPlaceHolder;
