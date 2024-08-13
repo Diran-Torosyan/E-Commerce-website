@@ -5,11 +5,14 @@ import java.awt.*;
 /*Provide a complete summary for each module/class header: include
 a) CheckoutPage
 b) Aug 13,2024
-c) Diran Torosyan
+c) @author Diran Torosyan
 d) creates the checkout page and allows for the user to enter their card information and see the cart
 f) calls on the data structures used by the cart and the text file information used
 */
 public class CheckoutPage extends JFrame {
+    /*
+     * creates all buttons and fields for the checkout page
+     */
     public CheckoutPage(Cart cart) {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
