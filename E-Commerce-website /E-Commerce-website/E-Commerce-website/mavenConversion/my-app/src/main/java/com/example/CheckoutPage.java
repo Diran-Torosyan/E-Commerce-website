@@ -32,16 +32,32 @@ public class CheckoutPage extends JFrame {
         cardCVBar.setPreferredSize(new Dimension(300, 100));
         cardCVBar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        barTextField ExpirationBar = new barTextField("Enter Card Expiration Date");
+        ExpirationBar.setPreferredSize(new Dimension(100, 100));
+        ExpirationBar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        barTextField cardNameBar = new barTextField("Enter Card Holder Name First and last");
+        cardNameBar.setPreferredSize(new Dimension(300, 100));
+        cardNameBar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton EnterButton = new JButton("Enter");
+        EnterButton.addActionListener(e -> {
+            
+            this.dispose();
+        });
+
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             this.dispose();
         });
 
-
         add(cartPanel,BorderLayout.CENTER);
-        CheckoutBar.add(backButton);
+        CheckoutBar.add(backButton,BorderLayout.CENTER);
         CheckoutBar.add(cardNumBar);
         CheckoutBar.add(cardCVBar);
+        CheckoutBar.add(cardNameBar);
+        CheckoutBar.add(ExpirationBar);
+        CheckoutBar.add(EnterButton);
         add(CheckoutBar,BorderLayout.SOUTH);
 
 
