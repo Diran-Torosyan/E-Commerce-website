@@ -23,6 +23,17 @@ import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -245,7 +256,42 @@ public class CreatePages extends JFrame {
     }
 
     private void sendEmailReceipt() {
-        // Email sending code
+        String to = "jackray3111@gmail.com";
+        String from = "generalclothingsupply@yahoo.com";
+        String host = "sandbox.smtp.mailtrap.io";
+        final String username = "3fd865f7e6364f";
+        final String password = "ff57e41eb72590";
+
+        Properties properties = System.getProperties();
+        properties.setProperty("mail.smtp.host", host);
+        properties.setProperty("mail.smtp.port", "587");
+        properties.setProperty("mail.smtp.auth", "true");
+
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject("Your Purchase Receipt");
+
+            StringBuilder emailBody = new StringBuilder("Thank you for your purchase!\n\nItems in your cart:\n");
+            for (Cart.Item item : cart.getItems()) {
+                emailBody.append(item.getName()).append(" - $").append(String.format("%.2f", item.getPrice())).append("\n");
+            }
+
+            message.setText(emailBody.toString());
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Email receipt sent successfully.");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Failed to send email: " + mex.getMessage());
+        }
     }
 
     private void login() {
