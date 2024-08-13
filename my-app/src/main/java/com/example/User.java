@@ -32,25 +32,35 @@ public class User {
         int lastId = 0;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/resources/customer.txt")))) {
             String line;
-            int lineNumber = 0;
+            boolean expectingId = true;  // Track when an ID is expected
     
             while ((line = br.readLine()) != null) {
-                if (lineNumber % 8 == 0) { // every 8th line is assumed to be an ID
+                line = line.trim();
+                if (!line.isEmpty()) {
                     try {
-                        int currentId = Integer.parseInt(line.trim());
-                        lastId = currentId;
+                        int number = Integer.parseInt(line);
+    
+                        if (expectingId && number >= 1 && number <= 999 && number > lastId) {
+                            lastId = number;
+                            expectingId = false;  // After reading ID, don't expect another ID until 7 more lines
+                        } else if (number > 999) {
+                            // If the number is greater than 999, it's treated as a zip code or other data, not an ID
+                            expectingId = false;  // Skip ID expectation if a zip code is found
+                        }
+    
                     } catch (NumberFormatException e) {
-                        // If the first line is not a number, something is wrong, so skip it
-                        continue;
+                        // Skip this line if it's not an integer
                     }
+    
+                    expectingId = !expectingId;  // Toggle between expecting an ID and other fields
                 }
-                lineNumber++;
             }
         } catch (IOException e) {
             System.out.println("Error reading customer file: " + e.getMessage());
         }
         return lastId;
     }
+    
 
     public void customerInfo() {
         File customerFile = new File("src/main/resources/customer.txt");
