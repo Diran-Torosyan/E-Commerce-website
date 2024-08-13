@@ -3,13 +3,30 @@ package com.example;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class demonstrates the GUI design for the login page with username and password bars
+ * 
+ * <p>The login page class extends JFrame class in the Java Swing library to access its components.
+ * It formats an interactive login page with username and password bars and launches it.
+ * 
+ * @author
+ */
 
 
 public class loginPage extends JFrame {
-   
+    /**
+     * Constructs a new login page and displays it 
+     */
     public loginPage() {
         loginDisplay();
     }
+    /**
+     * Formats the login display; arranges the specification of the text bars
+     * 
+     * @param loginBar sets format details for login panel
+     * @param usernameBar text bar where user inputs username
+     * @param passwordBar text bar where user inputs password
+     */
     void loginDisplay() {
         setTitle("Login Page");
         setSize(400,400);
@@ -34,6 +51,14 @@ public class loginPage extends JFrame {
         loginBar.add(passwordBar);
         add(loginBar,BorderLayout.CENTER);
     }
+    /**
+    * The 'main' method
+    * 
+    * <p>Entry point of the application.
+    * 
+    * @param args a string-array of command-line arguments passed to the program
+    * @param frame instance of loginPage class
+    */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             loginPage frame = new loginPage();
