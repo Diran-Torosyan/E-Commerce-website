@@ -166,6 +166,8 @@ public class Main extends JFrame {
         scrollPane = new JScrollPane(items);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
 
         add(scrollPane, BorderLayout.CENTER);
 
