@@ -3,6 +3,7 @@ package com.example;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -116,45 +117,96 @@ public class Item {
         return false;
     }
 
-public void applySale(double discountPercentage) {
-    this.sale = true;
-    this.salePrice = price - (price * discountPercentage / 100);
-}
-
-public int addItem(String size) {
-    switch (size.toLowerCase()) {
-        case "small":
-            if (smallStock > 0) {
-                smallStock--;
-                itemsInCart++;
-                System.out.println("Added small size to cart. Items in cart: " + itemsInCart);
-            }
-            break;
-        case "medium":
-            if (mediumStock > 0) {
-                mediumStock--;
-                itemsInCart++;
-                System.out.println("Added medium size to cart. Items in cart: " + itemsInCart);
-            }
-            break;
-        case "large":
-            if (largeStock > 0) {
-                largeStock--;
-                itemsInCart++;
-                System.out.println("Added large size to cart. Items in cart: " + itemsInCart);
-            }
-            break;
-        case "xlarge":
-            if (xlargeStock > 0) {
-                xlargeStock--;
-                itemsInCart++;
-                System.out.println("Added extra-large size to cart. Items in cart: " + itemsInCart);
-            }
-            break;
-        default:
-            System.out.println("Invalid size.");
-            break;
+    public void applySale(double discountPercentage) {
+        if (discountPercentage > 0) {
+            this.sale = true;
+            this.salePrice = price - (price * discountPercentage / 100);
+        } else {
+            this.sale = false;
+            this.salePrice = price;  // Reset sale price to original price
+        }
+        updateItemInFile();  // Update the file with the new sale information
     }
-    return itemsInCart;
-}
+
+    public int addItem(String size) {
+        switch (size.toLowerCase()) {
+            case "small":
+                if (smallStock > 0) {
+                    smallStock--;
+                    itemsInCart++;
+                    System.out.println("Added small size to cart. Items in cart: " + itemsInCart);
+                }
+                break;
+            case "medium":
+                if (mediumStock > 0) {
+                    mediumStock--;
+                    itemsInCart++;
+                    System.out.println("Added medium size to cart. Items in cart: " + itemsInCart);
+                }
+                break;
+            case "large":
+                if (largeStock > 0) {
+                    largeStock--;
+                    itemsInCart++;
+                    System.out.println("Added large size to cart. Items in cart: " + itemsInCart);
+                }
+                break;
+            case "xlarge":
+                if (xlargeStock > 0) {
+                    xlargeStock--;
+                    itemsInCart++;
+                    System.out.println("Added extra-large size to cart. Items in cart: " + itemsInCart);
+                }
+                break;
+            default:
+                System.out.println("Invalid size.");
+                break;
+        }
+        updateItemInFile(); // Update the file with the new stock information
+        return itemsInCart;
+    }
+
+    public void updateItemInFile() {
+        String filePath = "src/main/resources/itemstock.txt"; // Ensure this path is correct
+        File file = new File(filePath);
+        StringBuilder newContent = new StringBuilder();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(",", -1);
+                
+                // Check if this is the line corresponding to the current item
+                if (Integer.parseInt(fields[0]) == this.itemId) {
+                    // Rebuild the line with updated values
+                    String updatedLine = this.itemId + "," +
+                            "\"" + this.itemName + "\"," +
+                            "\"" + this.description + "\"," +
+                            this.price + "," +
+                            "\"" + this.imagePath + "\"," +
+                            "\"" + this.genderCategory + "\"," +
+                            "\"" + this.typeCategory + "\"," +
+                            this.smallStock + "," +
+                            this.mediumStock + "," +
+                            this.largeStock + "," +
+                            this.xlargeStock + "," +
+                            this.sale + "," +
+                            this.salePrice;
+
+                    newContent.append(updatedLine).append(System.lineSeparator());
+                } else {
+                    newContent.append(line).append(System.lineSeparator());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Write the new content back to the file
+        try (FileWriter fw = new FileWriter(file, false)) {
+            fw.write(newContent.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
