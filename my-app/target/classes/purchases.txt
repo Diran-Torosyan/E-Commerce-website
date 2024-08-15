@@ -1,0 +1,30 @@
+Purchase Time: 2024-08-15 12:31:27
+Email: jackray3111@gmail.com
+Total: $290.97
+Items Purchased:
+- Insulated Mittens - $29.99
+- Hiking Shoes - $79.99
+- Winter Boots - $95.00
+- Outdoor Jacket - $85.99
+
+Purchase Time: 2024-08-15 12:41:49
+Email: luke@gmail.com
+Total: $231.74
+Items Purchased:
+- Insulated Mittens - $29.99
+- Thermal Sweater - $60.50
+- Hiking Boots - $110.75
+- Fleece Blanket - $30.50
+
+Purchase Time: 2024-08-15 15:11:56
+Email: jackray3111@gmail.com
+Total: $449.76
+Items Purchased:
+- Insulated Mittens - $29.99
+- Hiking Shoes - $79.99
+- Winter Boots - $95.00
+- Outdoor Jacket - $85.99
+- Outdoor Beanie - $25.99
+- Hiking Pants - $72.30
+- Thermal Sweater - $60.50
+
