@@ -46,10 +46,27 @@ public class loginPage extends JFrame {
         passwordBar.setPreferredSize(new Dimension(50, 20));
         passwordBar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        //submit button
+        JButton submitButton = new JButton("Submit");
+        submitButton.setPreferredSize(new Dimension(10, 25));
+        submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         loginBar.add(usernameBar);
         loginBar.add(passwordBar);
+        loginBar.add(submitButton);
         add(loginBar,BorderLayout.CENTER);
+
+        submitButton.addActionListener(e -> {
+            String username = usernameBar.getText();
+            String password = passwordBar.getText();
+            boolean success = LoginController.login(username, password);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Login Successful.");
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Invalid username or password.");
+            }
+        });
     }
     /**
     * The 'main' method
