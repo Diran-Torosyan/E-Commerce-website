@@ -44,14 +44,14 @@ public class ItemTest {
         // Test adding item to cart
         System.out.print("Enter size to add to cart (small, medium, large, xlarge): ");
         String size = sc.next();
-        item.addItem(size);
+        //item.addItem(size);
 
         // Display updated stock and items in cart
         System.out.println("Updated Stock (Small): " + item.getSmallStock());
         System.out.println("Updated Stock (Medium): " + item.getMediumStock());
         System.out.println("Updated Stock (Large): " + item.getLargeStock());
         System.out.println("Updated Stock (XLarge): " + item.getXlargeStock());
-        System.out.println("Items in Cart: " + item.getItemsInCart());
+        //System.out.println("Items in Cart: " + item.getItemsInCart());
 
         sc.close();
     }

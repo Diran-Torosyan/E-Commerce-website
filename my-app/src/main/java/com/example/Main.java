@@ -1,39 +1,25 @@
-/*
-Main.java
-7/17/24
-Jack Ray and Diran Torosyan
-d) Main.java is the central class of an e-commerce application. It creates
-the landing page GUI including the functionality to compontents like the search
-bar and the filters. 
-
-e) Brief explanation of important functions in each class, including its input
-values and output values
-f) Any important data structure in class/methods
-g) Briefly describe any algorithm that you may have used and why did you
-select it upon other algorithms where more than one option exists.
-*/
-
 package com.example;
 
-import java.io.FileNotFoundException;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.Properties;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * This class demonstrates the main GUI design for the e-commerce application with product showcase, filters, 
+ * search, cart, checkout, and user login/signup functionalities.
+ * 
+ * <p>The Main class extends JFrame class in the Java Swing library to access its components. It formats an
+ * interactive main page with the products' images. It also includes check boxes to apply filters, a search bar to 
+ * filter and display products based on String input, and buttons to view cart, checkout, and login/signup. 
+ * 
+ * @author Jack Ray
+ * @author Diran Torosyan
+ * @since 1.0 (2024-07-17)
+ */
 public class Main extends JFrame {
     private JTextField searchBar;
     private JButton searchButton;
@@ -44,10 +30,17 @@ public class Main extends JFrame {
 
     private JCheckBox menFilter;
     private JCheckBox womenFilter;
-
     private JCheckBox topsFilter;
     private JCheckBox bottomsFilter;
     private JCheckBox shoesFilter;
+    private JCheckBox saleFilter;  
+
+    private String loggedInEmail;
+    private JLabel loggedInLabel;
+    /**
+     * Constructor for Main. Initializes the cart, loads products, and displays
+     * the home page of the application with product listings.
+     */
 
     public Main() {
         cart = new Cart();
@@ -55,13 +48,16 @@ public class Main extends JFrame {
         homeDisplay();
         itemDisplay(products);
     }
-
+    /**
+     * Initializes the product map by reading item data from files and populating
+     * the product list. Each product is loaded based on its item ID.
+     */
     private void initializeProducts() {
         products = new HashMap<>();
         try {
             for (int i = 101; i <= 130; i++) {
                 Item item = new Item();
-                System.out.println("Initializing product with ID: " + i); // Debug print
+                System.out.println("Initializing product with ID: " + i); 
                 if (item.readFile(i)) {
                     products.put(i, item);
                 }
@@ -70,7 +66,10 @@ public class Main extends JFrame {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Creates and displays the main homepage. Sets up the GUI layout, including
+     * the search bar, filters, and buttons for cart, checkout, login, and new user registration.
+     */
     void homeDisplay() {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -97,20 +96,20 @@ public class Main extends JFrame {
         searchButton.setPreferredSize(new Dimension(100, 30));
         searchButton.addActionListener(e -> search());
 
-        // Initialize the filters
         menFilter = new JCheckBox("Men's");
         womenFilter = new JCheckBox("Women's");
 
         topsFilter = new JCheckBox("Top's");
         bottomsFilter = new JCheckBox("Bottom's");
         shoesFilter = new JCheckBox("Shoe's");
+        saleFilter = new JCheckBox("On Sale");  
 
-        // Add filter action listeners
         menFilter.addActionListener(e -> applyFilters());
         womenFilter.addActionListener(e -> applyFilters());
         topsFilter.addActionListener(e -> applyFilters());
         bottomsFilter.addActionListener(e -> applyFilters());
         shoesFilter.addActionListener(e -> applyFilters());
+        saleFilter.addActionListener(e -> applyFilters());  
 
         JButton cartButton = new JButton("Cart");
         cartButton.setForeground(Color.GRAY);
@@ -140,6 +139,9 @@ public class Main extends JFrame {
         NewUserButton.setFocusable(true);
         NewUserButton.addActionListener(e -> NewUser());
 
+        loggedInLabel = new JLabel(""); 
+        loggedInLabel.setForeground(Color.BLUE);
+
         add(bar);
         bar.add(home);
         bar.add(searchBar);
@@ -149,10 +151,12 @@ public class Main extends JFrame {
         bar.add(topsFilter);
         bar.add(bottomsFilter);
         bar.add(shoesFilter);
+        bar.add(saleFilter);  
         bar.add(cartButton);
         bar.add(checkoutButton);
         bar.add(loginButton);
         bar.add(NewUserButton);
+        bar.add(loggedInLabel);
 
         add(bar, BorderLayout.NORTH);
         items = new JPanel();
@@ -163,13 +167,23 @@ public class Main extends JFrame {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-
         add(scrollPane, BorderLayout.CENTER);
 
         setResizable(false);
         setVisible(true);
     }
-
+    /**
+     * Updates the logged-in label with the email of the currently logged-in user.
+     * @param email the email of the currently logged-in user
+     */
+    public void updateLoggedInLabel(String email) {
+        loggedInEmail = email;
+        loggedInLabel.setText("Logged in as: " + email);
+    }
+    /**
+     * Displays the items based on the provided map of products.
+     * @param productsToDisplay a map of products to display
+     */
     private void itemDisplay(Map<Integer, Item> productsToDisplay) {
         items.removeAll();
 
@@ -200,7 +214,7 @@ public class Main extends JFrame {
 
                 JButton addButton = new JButton("Add to Cart");
                 addButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                addButton.addActionListener(e -> cart.addItem(item.getItemName(), item.getPrice()));
+                addButton.addActionListener(e -> cart.addItem(item.getItemName(), item.getSale() ? item.getSalePrice() : item.getPrice()));
 
                 productPanel.add(addButton);
 
@@ -213,12 +227,18 @@ public class Main extends JFrame {
         items.revalidate();
         items.repaint();
     }
-
+    /**
+     * Performs a search based on the text in the search bar and applies filters
+     * to the search results.
+     */
     private void search() {
         Map<Integer, Item> searchedProducts = searchProducts();
         filterProducts(searchedProducts);
     }
-
+    /**
+     * Searches for products whose names contain the query from the search bar.
+     * @return a map of products that match the search query
+     */
     private Map<Integer, Item> searchProducts() {
         String query = searchBar.getText().toLowerCase();
         Map<Integer, Item> searchedProducts = new HashMap<>();
@@ -231,11 +251,15 @@ public class Main extends JFrame {
 
         return searchedProducts;
     }
-
+    /**
+     * Filters the provided products based on selected filters and displays the result.
+     * @param productsToFilter a map of products to be filtered
+     */
     private void filterProducts(Map<Integer, Item> productsToFilter) {
         Map<Integer, Item> filteredProducts = new HashMap<>();
 
-        if (!menFilter.isSelected() && !womenFilter.isSelected() && !topsFilter.isSelected() && !bottomsFilter.isSelected() && !shoesFilter.isSelected()) {
+        if (!menFilter.isSelected() && !womenFilter.isSelected() && !topsFilter.isSelected() 
+            && !bottomsFilter.isSelected() && !shoesFilter.isSelected() && !saleFilter.isSelected()) {
             filteredProducts.putAll(productsToFilter);
         } else {
             for (Item item : productsToFilter.values()) {
@@ -246,8 +270,9 @@ public class Main extends JFrame {
                                     (topsFilter.isSelected() && item.getTypeCategory().equalsIgnoreCase("Top's")) ||
                                     (bottomsFilter.isSelected() && item.getTypeCategory().equalsIgnoreCase("Bottom's")) ||
                                     (shoesFilter.isSelected() && item.getTypeCategory().equalsIgnoreCase("Shoe's"));
+                boolean saleMatch = !saleFilter.isSelected() || (saleFilter.isSelected() && item.getSale());
 
-                if (genderMatch && typeMatch) {
+                if (genderMatch && typeMatch && saleMatch) {
                     filteredProducts.put(item.getItemId(), item);
                 }
             }
@@ -255,12 +280,16 @@ public class Main extends JFrame {
 
         itemDisplay(filteredProducts);
     }
-
+    /**
+     * Applies selected filters and updates the displayed items.
+     */
     private void applyFilters() {
         Map<Integer, Item> searchedProducts = searchProducts();
         filterProducts(searchedProducts);
     }
-
+    /**
+     * Displays the cart.
+     */
     private void viewCart() {
         JPanel cartPanel = new JPanel();
         cartPanel.setLayout(new BoxLayout(cartPanel, BoxLayout.Y_AXIS));
@@ -271,61 +300,36 @@ public class Main extends JFrame {
 
         JOptionPane.showMessageDialog(this, cartPanel, "Your Cart", JOptionPane.INFORMATION_MESSAGE);
     }
-
+    /**
+     * Handles the checkout process.
+     */
     private void checkout() {
-        new CheckoutPage(cart);
-        //sendEmailReceipt();
-    }
-
-    private void sendEmailReceipt() {
-        String to = "jackray3111@gmail.com";
-        String from = "generalclothingsupply@yahoo.com";
-        String host = "sandbox.smtp.mailtrap.io";
-        final String username = "3fd865f7e6364f";
-        final String password = "ff57e41eb72590";
-
-        Properties properties = System.getProperties();
-        properties.setProperty("mail.smtp.host", host);
-        properties.setProperty("mail.smtp.port", "587");
-        properties.setProperty("mail.smtp.auth", "true");
-
-        Session session = Session.getDefaultInstance(properties, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
-
-        try {
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject("Your Purchase Receipt");
-
-            StringBuilder emailBody = new StringBuilder("Thank you for your purchase!\n\nItems in your cart:\n");
-            for (Cart.Item item : cart.getItems()) {
-                emailBody.append(item.getName()).append(" - $").append(String.format("%.2f", item.getPrice())).append("\n");
-            }
-
-            message.setText(emailBody.toString());
-
-            Transport.send(message);
-            JOptionPane.showMessageDialog(this, "Email receipt sent successfully.");
-        } catch (MessagingException mex) {
-            mex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Failed to send email: " + mex.getMessage());
+        if (!cart.getItems().isEmpty()) {
+            User user = new User();
+            user.loadCustomerData(loggedInEmail); 
+            new CheckoutPage(cart, user);
+        } else {
+            JOptionPane.showMessageDialog(this, "Your cart is empty. Please add items before checkout.");
         }
     }
-
+    /**
+     * Opens the login page.
+     */
     private void login() {
-        loginPage frame = new loginPage();
+        loginPage frame = new loginPage(this); 
         frame.setVisible(true);
     }
-
+    /**
+     * Opens the new user registration page.
+     */
     private void NewUser() {
         NewUserloginPage frame = new NewUserloginPage();
         frame.setVisible(true);
     }
-
+    /**
+     * Entry point of the application.
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Main::new);
     }

@@ -5,7 +5,7 @@ package com.example;
  * <p>The Product class contains a product's ID, name, description, price, image path, and catagory, and a getter for each.
  * It has the functionality catagorize an item between 'Men' or 'Women'
  * 
- * @author
+ * @author Jack Ray
  */
 public class Product {
     /**
@@ -31,10 +31,10 @@ public class Product {
     /**
      * The product catagory
      */
-    private String category; // New attribute for category
+    private String category;
 
     /**
-     * Constructs a new product with ID, name, description, price, image path, and catagory 
+     * Constructs a new product with specified ID, name, description, price, image path, and catagory 
      * @param id ID of the product
      * @param name name of the product
      * @param description description of the product
@@ -44,12 +44,14 @@ public class Product {
      */
     public Product(String id, String name, String description, double price, String imagePath, String category) {
         this.id = id;
-        // Remove quotes from the name and description at the time of object creation
+        /**
+         * Remove quotes from the name and description at the time of object creation
+         */
         this.name = name.replace("\"", "");
         this.description = description.replace("\"", "");
         this.price = price;
         this.imagePath = imagePath;
-        this.category = category; // Initialize category
+        this.category = category;
     }
     /**
      * The product ID getter
@@ -91,20 +93,20 @@ public class Product {
      * @return The product catagory
      */
     public String getCategory() {
-        return category; // Getter for category
+        return category;
     }
     /**
      * The product catagory checker--Men's
      * @return true if the product is catagorized as 'Men's' and false otherwise
      */
     public boolean meetsFilter1Criteria() {
-        return this.category.equalsIgnoreCase("Men's"); // Filter for Men's category
+        return this.category.equalsIgnoreCase("Men's");
     }
     /**
      * The product catagory checker--Women's
      * @return true if the product is catagorized as 'Women's' and false otherwise
      */
     public boolean meetsFilter2Criteria() {
-        return this.category.equalsIgnoreCase("Women's"); // Filter for Women's category
+        return this.category.equalsIgnoreCase("Women's");
     }
 }

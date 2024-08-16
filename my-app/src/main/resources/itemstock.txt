@@ -1,4 +1,4 @@
-101,"Outdoor Jacket","High-quality outdoor jacket perfect for hiking and camping.",85.99,"product_pictures/101.jpeg","Men's","Top's",72,88,99,44,false,0.0
+101,Outdoor Jacket,High-quality outdoor jacket perfect for hiking and camping.,85.99,product_pictures/101.jpeg,Men's,Top's,72,88,99,44,false,0.00
 102,"Thermal Sweater","A comfortable and warm thermal sweater.",60.50,"product_pictures/102.jpeg","Women's","Top's",50,60,70,80,true,55.0
 103,"Hiking Pants","Rugged and flexible hiking pants designed for maximum mobility on the trail.",72.30,"product_pictures/103.jpeg","Men's","Bottom's",30,45,60,20,false,0.0
 104,"Outdoor Beanie","Stylish outdoor beanie made of warm high-quality material.",25.99,"product_pictures/104.jpeg","Unisex","Accessory",40,50,60,70,true,20.99

@@ -8,7 +8,7 @@ public class UserTest {
 
         // Test customer information input
         //System.out.println("Testing customer information input:");
-        customer.customerInfo();
+        //customer.customerInfo();
 
         // Test customer login creation
         //System.out.println("Testing customer login creation:");
@@ -22,6 +22,6 @@ public class UserTest {
         // Test admin login
         //customer.adminInfo();
         //System.out.println("Testing admin login:");
-        //customer.admin();
+        customer.admin();
     }
 }
