@@ -18,11 +18,26 @@ import java.util.Scanner;
  * @author Diran Torosyan
  */
 public class loginPage extends JFrame {
-    private barTextField usernameField;  // Declaring the username field
-    private barTextField passwordField;  // Declaring the password field
-    private User user; // Reference to the User class to handle login logic
-    private Main mainFrame; // Reference to Main to update logged-in info
-    private boolean isUsernameFieldFirstFocus = true; // Flag to track initial focus on the username field
+    /**
+     * Declaring the username field
+     */
+    private barTextField usernameField; 
+    /**
+     * Declaring the password field
+     */
+    private barTextField passwordField; 
+    /**
+     * Reference to the User class to handle login logic
+     */
+    private User user; 
+    /**
+     * Reference to Main to update logged-in info
+     */
+    private Main mainFrame;
+    /**
+     * Flag to track initial focus on the username field
+     */
+    private boolean isUsernameFieldFirstFocus = true;
     private boolean isPasswordFieldFirstFocus = true;
 
     /**
@@ -31,8 +46,14 @@ public class loginPage extends JFrame {
      * @param mainFrame reference to the Main class to update the logged-in label
      */
     public loginPage(Main mainFrame) {
-        this.mainFrame = mainFrame; // Initialize Main reference
-        user = new User(); // Initialize User class
+        /**
+         * Initialize Main reference
+         */
+        this.mainFrame = mainFrame;
+        /**
+         * Initialize User class
+         */
+        user = new User(); 
         loginDisplay();
     }
 
@@ -54,7 +75,9 @@ public class loginPage extends JFrame {
         usernameField.setPreferredSize(new Dimension(150, 30));
         usernameField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Add FocusListener to clear placeholder text
+        /**
+         * Add FocusListener to clear placeholder text
+         */
         usernameField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -69,7 +92,9 @@ public class loginPage extends JFrame {
         passwordField.setPreferredSize(new Dimension(150, 30));
         passwordField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Add FocusListener to clear placeholder text
+        /**
+         * Add FocusListener to clear placeholder text
+         */
         passwordField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -80,37 +105,54 @@ public class loginPage extends JFrame {
             }
         });
 
-        // Update the existing button to "User Login"
+        /**
+         * Update the existing button to "User Login"
+         */
         JButton userLoginButton = new JButton("User Login");
         userLoginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         userLoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                handleLogin(); // Retain existing functionality
+                /**
+                 * Retain existing functionality
+                 */
+                handleLogin();
             }
         });
 
-        // Add a new "Admin Login" button
+        /**
+         * Add a new "Admin Login" button
+         */
         JButton adminLoginButton = new JButton("Admin Login");
         adminLoginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         adminLoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                handleAdminLogin(); // Implementing admin login functionality
+                /**
+                 * Implementing admin login functionality
+                 */
+                handleAdminLogin(); 
             }
         });
 
         loginBar.add(usernameField);
         loginBar.add(passwordField);
-        loginBar.add(userLoginButton); // Add the user login button
-        loginBar.add(adminLoginButton); // Add the admin login button
+        /**
+         * Add the user login button
+         */
+        loginBar.add(userLoginButton);
+        /**
+         * Add the admin login button
+         */
+        loginBar.add(adminLoginButton);
 
         add(loginBar, BorderLayout.CENTER);
     }
 
     /**
-     * Handles the login process by collecting input from the username and password fields
-     * and passing them to the loginCheck function in the User class for validation.
+     * Handles the login process.
+     * <p>Collects input from the username and password fields
+     * and passes them to the loginCheck function in the User class for validation.
      * If the login is successful, the main frame is updated with the logged-in user information.
      */
     private void handleLogin() {
@@ -119,8 +161,14 @@ public class loginPage extends JFrame {
 
         if (user.loginCheck(username, password)) {
             JOptionPane.showMessageDialog(this, "Login Successful");
-            mainFrame.updateLoggedInLabel(username); // Update the main frame with the logged-in email
-            dispose(); // Close the login page after successful login
+            /**
+             * Update the main frame with the logged-in email
+             */
+            mainFrame.updateLoggedInLabel(username); 
+            /**
+             * Close the login page after successful login
+             */
+            dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Credentials. Please Try Again.");
         }
@@ -135,10 +183,18 @@ public class loginPage extends JFrame {
 
         if (adminLoginCheck(username, password)) {
             JOptionPane.showMessageDialog(this, "Admin Login Successful");
-            mainFrame.updateLoggedInLabel(username); // Update the main frame with the admin's email
-            dispose(); // Close the login page after successful login
+            /**
+             * Update the main frame with the admin's email
+             */
+            mainFrame.updateLoggedInLabel(username); 
+            /**
+             * Close the login page after successful login
+             */
+            dispose();
 
-            // Open the admin page
+            /**
+             * Open the admin page
+             */
             new adminPage().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Admin Credentials. Please Try Again.");
@@ -183,6 +239,9 @@ public class loginPage extends JFrame {
      * <p>Entry point of the application.</p>
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new loginPage(null).setVisible(true)); // No mainFrame reference here
+        /**
+         * No mainFrame reference here
+         */
+        SwingUtilities.invokeLater(() -> new loginPage(null).setVisible(true));
     }
 }

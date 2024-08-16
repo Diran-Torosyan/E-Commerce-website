@@ -15,7 +15,8 @@ import java.awt.event.FocusEvent;
 
 /**
  * Provides the checkout page for the e-commerce application.
- * Allows the user to review their cart, enter payment information, and complete the purchase.
+ * 
+ * <p>Allows the user to review their cart, enter payment information, and complete the purchase.
  */
 public class CheckoutPage extends JFrame {
 
@@ -38,12 +39,14 @@ public class CheckoutPage extends JFrame {
         setSize(screenSize);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-
-        // Create the panel that will show the user's information and cart items
+        /**
+         * Create the panel that will show the user's information and cart items
+         */
         JPanel cartPanel = new JPanel();
         cartPanel.setLayout(new BoxLayout(cartPanel, BoxLayout.Y_AXIS));
-
-        // Display user's information
+        /**
+         * Display user's information
+         */
         JLabel firstNameLabel = new JLabel("First Name: " + user.getFirstName());
         JLabel lastNameLabel = new JLabel("Last Name: " + user.getLastName());
         JLabel addressLabel = new JLabel("Address: " + user.getAddress());
@@ -60,7 +63,9 @@ public class CheckoutPage extends JFrame {
 
         cartPanel.add(Box.createRigidArea(new Dimension(0, 20)));  // Add some spacing
 
-        // Display cart items
+        /**
+         * Display cart items
+         */
         JLabel cartItemsLabel = new JLabel("Items in Your Cart:");
         cartItemsLabel.setFont(new Font("Arial", Font.BOLD, 16));
         cartPanel.add(cartItemsLabel);
@@ -70,7 +75,9 @@ public class CheckoutPage extends JFrame {
             cartPanel.add(new JLabel(item.getName() + " - $" + String.format("%.2f", item.getPrice())));
         }
 
-        // Display the total
+        /**
+         * Display the total
+         */
         JLabel totalLabel = new JLabel("Total: $" + String.format("%.2f", total));
         totalLabel.setFont(new Font("Arial", Font.BOLD, 16));
         cartPanel.add(Box.createRigidArea(new Dimension(0, 20)));  // Add some spacing
@@ -82,7 +89,9 @@ public class CheckoutPage extends JFrame {
 
         add(cartScrollPane, BorderLayout.CENTER);
 
-        // Create the panel that will hold the payment information fields
+        /**
+         * Create the panel that will hold the payment information fields
+         */
         JPanel paymentPanel = new JPanel();
         paymentPanel.setPreferredSize(new Dimension(screenSize.width, 200));
         paymentPanel.setBackground(Color.WHITE);
@@ -93,7 +102,9 @@ public class CheckoutPage extends JFrame {
         JTextField expirationField = new JTextField("Enter Card Expiration Date");
         JTextField cardNameField = new JTextField("Enter Card Holder Name");
 
-        // Add FocusListeners to clear the placeholder text when the field is focused
+        /**
+         * Add FocusListeners to clear the placeholder text when the field is focused
+         */
         addPlaceholderBehavior(cardNumField, "Enter Card Number");
         addPlaceholderBehavior(cardCVVField, "Enter Card CVV");
         addPlaceholderBehavior(expirationField, "Enter Card Expiration Date");
@@ -183,6 +194,7 @@ public class CheckoutPage extends JFrame {
      * 
      * @param email The user's email address.
      * @param total The total amount of the purchase.
+     * @exception IOException if purchase info data file cannot be accessed
      */
     private void storePurchaseDetails(String email, double total) {
         String filePath = "src/main/resources/purchases.txt";
@@ -207,6 +219,8 @@ public class CheckoutPage extends JFrame {
 
     /**
      * Sends an email receipt to the customer after purchase completion.
+     * 
+     * @exception MessagingException prompts message to inform user if sending email receipt is failed
      */
     private void sendEmailReceipt() {
         String to = user.getEmail();  // Send the email to the user's email address

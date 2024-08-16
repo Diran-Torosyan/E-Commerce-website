@@ -68,6 +68,9 @@ public class adminPage extends JFrame {
 
     /**
      * Applies the discount to the specified item by updating the itemstock.txt file.
+     * 
+     * @exception NumberFormatException if invalid discount percentage is entered
+     * @exception IOException if item stock file cannot be accessed
      */
     private void applyDiscount() {
         String itemId = itemIdBar.getText().trim();
@@ -129,7 +132,6 @@ public class adminPage extends JFrame {
             return;
         }
     
-        // Write the updated content back to the file
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(itemFile))) {
             for (String updatedLine : fileContent) {
                 bw.write(updatedLine);
@@ -147,6 +149,8 @@ public class adminPage extends JFrame {
     
      
     /**
+     * Parses the data file for the string input
+     * 
      * @param line The line to parse.
      * @return An array of fields.
      */
@@ -185,6 +189,11 @@ class barTextField extends JTextField implements FocusListener {
     private String placeHolder;
     private boolean showPlaceHolder;
 
+    /**
+     * connects a plce holder with a listener
+     * 
+     * @param placeHolder for the listener
+     */
     public barTextField(String placeHolder) {
         super(placeHolder);
         this.placeHolder = placeHolder;

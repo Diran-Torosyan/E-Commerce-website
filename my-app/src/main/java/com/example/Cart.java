@@ -53,16 +53,27 @@ public class Cart {
     public static class Item {
         private String name;
         private double price;
-
+        /**
+         * Constructs a new item with specified name and price
+         * 
+         * @param name the name to assign to this item
+         * @param price the price to assign to this product
+         */
         public Item(String name, double price) {
             this.name = name;
             this.price = price;
         }
-
+        /**
+         * getter
+         * @return item name
+         */
         public String getName() {
             return name;
         }
-
+        /**
+         * getter
+         * @return item price
+         */
         public double getPrice() {
             return price;
         }
