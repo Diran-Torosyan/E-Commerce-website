@@ -30,6 +30,9 @@ public class User {
     private String custUser;
     private String custPass;
 
+    /**
+     * Constructs a new User object
+     */
     public User() {}
 
     /**
@@ -94,41 +97,68 @@ public class User {
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
+    /**
+     * gets
+     * @return user's customer-number
+     */
     public int getCustNum() {
         return custNum;
     }
-
+    /**
+     * gets
+     * @return user's first name
+     */
     public String getFirstName() {
         return firstName;
     }
-
+    /**
+     * gets
+     * @return user's last name
+     */
     public String getLastName() {
         return lastName;
     }
-
+    /**
+     * gets
+     * @return user's email
+     */
     public String getEmail() {
         return email;
     }
-
+    /**
+     * gets
+     * @return user's address
+     */
     public String getAddress() {
         return address;
     }
-
+    /**
+     * gets
+     * @return user's city of residence
+     */
     public String getCity() {
         return city;
     }
-
+    /**
+     * gets
+     * @return user's state of residence
+     */
     public String getState() {
         return state;
     }
-
+    /**
+     * gets
+     * @return user's residence zip code
+     */
     public int getZipcode() {
         return zipcode;
     }
-        /**
+    /**
      * Loads the customer data from customer.txt based on the provided email.
      * 
      * @param email the email of the customer to look up
+     * @exception IOException if customer data file cannot be accessed
+     * @exception NumberFormatException if number of lines in data file is invalid
      */
     public void loadCustomerData(String email) {
         File customerFile = new File("src/main/resources/customer.txt");
@@ -173,6 +203,7 @@ public class User {
      * IDs are expected to be between 1 and 999, and zip codes are identified as numbers greater than 999.</p>
      * 
      * @return the last customer ID
+     * @exception IOException if customer data file cannot be accessed
      */
     private int getLastCustomerId() {
         int lastId = 0;
@@ -209,6 +240,8 @@ public class User {
      * Collects customer information and writes it to the customer file.
      * 
      * <p>This method prompts the user for their information and writes the details to the customer file.</p>
+     * 
+     * @exception IOException if customer data file cannot be accessed
      */
     public void customerInfo() {
         File customerFile = new File("src/main/resources/customer.txt");
