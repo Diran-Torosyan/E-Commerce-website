@@ -6,8 +6,7 @@ import java.awt.*;
 /**
  * This class demonstrates the GUI design for the "product details" page with the product details and navigation buttons.
  * 
- * @author Jack Ray
- * @author Diran Torosyan
+ * @author
  */
 public class ProductDetailsPage extends JFrame {
     /**

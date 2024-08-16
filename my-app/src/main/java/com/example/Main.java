@@ -1,4 +1,5 @@
 package com.example;
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import java.awt.*;
@@ -8,18 +9,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * This class demonstrates the main GUI design for the e-commerce application with product showcase, filters, 
- * search, cart, checkout, and user login/signup functionalities.
- * 
- * <p>The Main class extends JFrame class in the Java Swing library to access its components. It formats an
- * interactive main page with the products' images. It also includes check boxes to apply filters, a search bar to 
- * filter and display products based on String input, and buttons to view cart, checkout, and login/signup. 
- * 
- * @author Jack Ray
- * @author Diran Torosyan
- * @since 1.0 (2024-07-17)
- */
 public class Main extends JFrame {
     private JTextField searchBar;
     private JButton searchButton;
@@ -33,7 +22,7 @@ public class Main extends JFrame {
     private JCheckBox topsFilter;
     private JCheckBox bottomsFilter;
     private JCheckBox shoesFilter;
-    private JCheckBox saleFilter; 
+    private JCheckBox saleFilter;  // New filter for items on sale
 
     private String loggedInEmail;
     private JLabel loggedInLabel;
@@ -57,7 +46,7 @@ public class Main extends JFrame {
         try {
             for (int i = 101; i <= 130; i++) {
                 Item item = new Item();
-                System.out.println("Initializing product with ID: " + i); 
+                System.out.println("Initializing product with ID: " + i); // Debug print
                 if (item.readFile(i)) {
                     products.put(i, item);
                 }
@@ -151,7 +140,7 @@ public class Main extends JFrame {
         bar.add(topsFilter);
         bar.add(bottomsFilter);
         bar.add(shoesFilter);
-        bar.add(saleFilter); 
+        bar.add(saleFilter);  // Add the new "On Sale" filter to the bar
         bar.add(cartButton);
         bar.add(checkoutButton);
         bar.add(loginButton);
