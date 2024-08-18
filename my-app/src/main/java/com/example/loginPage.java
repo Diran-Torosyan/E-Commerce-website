@@ -155,7 +155,7 @@ public class loginPage extends JFrame {
      * and passes them to the loginCheck function in the User class for validation.
      * If the login is successful, the main frame is updated with the logged-in user information.
      */
-    private void handleLogin() {
+    protected String handleLogin() {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
 
@@ -169,15 +169,17 @@ public class loginPage extends JFrame {
              * Close the login page after successful login
              */
             dispose();
+            return "Login Successful";
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Credentials. Please Try Again.");
+            return "Invalid Credentials";
         }
     }
 
     /**
      * Handles the admin login process by using the admin method in the User class.
      */
-    private void handleAdminLogin() {
+    protected String handleAdminLogin() {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
 
@@ -196,8 +198,10 @@ public class loginPage extends JFrame {
              * Open the admin page
              */
             new adminPage().setVisible(true);
+            return "Admin Login Successful";
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Admin Credentials. Please Try Again.");
+            return "Invalid Admin Credentials";
         }
     }
 
