@@ -1,0 +1,80 @@
+1
+Homer
+Simpson
+homersimpson@springfield.com
+742 Evergreen Terrace
+Springfield
+IL
+62704
+2
+Marge
+Simpson
+margesimpson@springfield.com
+742 Evergreen Terrace
+Springfield
+IL
+62704
+3
+Lisa
+Simpson
+lisasimpson@springfield.com
+742 Evergreen Terrace
+Springfield
+IL
+62704
+4
+Maggie
+Simpson
+maggiesimpson@springfield.com
+742 Evergreen Terrace
+Springfield
+IL
+62704
+5
+Ned
+Flanders
+nedflanders@springfield.com 
+744 Evergreen Terrace
+Springfield
+IL
+62704
+6
+Milhouse
+Van Houten
+milhousevh@springfield.com
+710 Maple Street
+Springfield
+IL
+62704
+7
+Moe
+Szyslak
+moeszyslak@springfield.com
+412 Main Street
+Springfield
+IL
+62704
+8
+Apu
+Nahasapeemapetilon
+apunahasapeemapetilon@springfield.com
+203 Eastfield Drive
+Springfield
+IL
+62704
+9
+Monty
+Burns
+mrburns@springfield.com
+1000 Mammon Lane
+Springfield
+IL
+62704
+10
+Bart
+Simpson
+bart@simpsons.com
+742 Evergreen Terrace
+Springfield
+IL
+67503

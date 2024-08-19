@@ -1,0 +1,50 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'C:/Users/jackr/.m2/repository/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar;C:/Users/jackr/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/jackr/github1/816mainhope/E-Commerce-website/my-app/src/main/java'
+-Xdoclint:none
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/jackr/github1/816mainhope/E-Commerce-website/my-app/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'my-app 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'my-app 1.0-SNAPSHOT API'
+com.example
+C:\Users\jackr\.m2\repository\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar = 1723043423495
+C:\Users\jackr\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar = 1723053375300
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\src\main\java = 1723863086294
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\allclasses-index.html = 1723863160822
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\allpackages-index.html = 1723863160825
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\element-list = 1723863160706
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\help-doc.html = 1723863160856
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\index-all.html = 1723863160848
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\index.html = 1723863160852
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\jquery-ui.overrides.css = 1723863160870
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\member-search-index.js = 1723863160831
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\module-search-index.js = 1723863160826
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\overview-tree.html = 1723863160803
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\package-search-index.js = 1723863160828
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\script.js = 1723863160859
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\search.js = 1723863160861
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\serialized-form.html = 1723863160752
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\stylesheet.css = 1723863160858
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\tag-search-index.js = 1723863160832
+C:\Users\jackr\github1\816mainhope\E-Commerce-website\my-app\target\site\apidocs\type-search-index.js = 1723863160830
