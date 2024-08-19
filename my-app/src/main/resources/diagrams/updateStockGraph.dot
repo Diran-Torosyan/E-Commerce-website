@@ -1,0 +1,19 @@
+digraph UpdateStockGraph {
+    Start -> OpenFile [label="Open itemstock.txt"];
+    OpenFile -> ReadLine [label="File opened successfully"];
+    ReadLine -> CheckID [label="Read line and split by comma"];
+    CheckID -> UpdateStock [label="Item ID matches"];
+    UpdateStock -> StoreUpdatedLine [label="Update stock values"];
+    StoreUpdatedLine -> ReadLine [label="Continue reading"];
+    ReadLine -> End [label="End of file reached"];
+    
+    CheckID -> StoreUnchangedLine [label="Item ID doesn't match"];
+    StoreUnchangedLine -> ReadLine;
+
+    ReadLine -> IOError [label="IOException", style=dashed];
+    IOError -> End;
+
+    StoreUpdatedLine -> WriteFile [label="File updated"];
+    WriteFile -> End [label="Write successful"];
+    WriteFile -> IOError;
+}

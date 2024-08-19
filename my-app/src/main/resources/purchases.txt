@@ -1,0 +1,54 @@
+Purchase Time: 2024-08-19 09:36:34
+Email: homersimpson@springfield.com
+Total: $259.98
+Items Purchased:
+- Insulated Mittens - $25.00
+- Hiking Shoes - $79.99
+- Winter Boots - $85.00
+- Windbreaker Jacket - $69.99
+Credit Card Number: 7894561231234567
+CVV: 987
+Expiration Date: 1225
+
+Purchase Time: 2024-08-19 09:38:05
+Email: nedflanders@springfield.com
+Total: $561.49
+Items Purchased:
+- Outdoor Cap - $18.00
+- Waterproof Hiking Boots - $125.00
+- Thermal Leggings - $35.00
+- Running Shoes - $44.99
+- Fleece Jacket - $60.00
+- Insulated Pants - $78.50
+- Hiking Boots - $95.00
+- Cargo Pants - $60.00
+- Trekking Sandals - $45.00
+Credit Card Number: 4567891254679813
+CVV: 654
+Expiration Date: 1225
+
+Purchase Time: 2024-08-19 09:47:52
+Email: bart@simpsons.com
+Total: $210.98
+Items Purchased:
+- Insulated Mittens - $25.00
+- Hiking Shoes - $79.99
+- Winter Boots - $85.00
+- Outdoor Beanie - $20.99
+Credit Card Number: 1234567812345678
+CVV: 666
+Expiration Date: 1225
+
+Purchase Time: 2024-08-19 09:49:35
+Email: bart@simpsons.com
+Total: $399.95
+Items Purchased:
+- Hiking Shoes - $79.99
+- Hiking Shoes - $79.99
+- Hiking Shoes - $79.99
+- Hiking Shoes - $79.99
+- Hiking Shoes - $79.99
+Credit Card Number: 4564564512312312
+CVV: 888
+Expiration Date: 1224
+

@@ -1,0 +1,21 @@
+digraph LoadCustomerData {
+    Start -> OpenFile [label="Open customer.txt"];
+    OpenFile -> ReadLine [label="File opened successfully"];
+    ReadLine -> TrimLine [label="Trim and parse line"];
+    TrimLine -> CheckEmail [label="Check if email matches"];
+    
+    CheckEmail -> PopulateFields [label="Email matches"];
+    PopulateFields -> BreakLoop [label="Populate fields and break"];
+    BreakLoop -> End;
+
+    CheckEmail -> SkipLines [label="Email doesn't match"];
+    SkipLines -> ReadLine [label="Skip next 4 lines"];
+
+    ReadLine -> End [label="End of file reached"];
+    
+    ReadLine -> IOError [label="IOException", style=dashed];
+    IOError -> End;
+    
+    TrimLine -> NumberFormatError [label="NumberFormatException", style=dashed];
+    NumberFormatError -> End;
+}

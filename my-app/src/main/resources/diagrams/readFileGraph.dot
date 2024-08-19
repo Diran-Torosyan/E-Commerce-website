@@ -1,0 +1,21 @@
+digraph ReadFileGraph {
+    Start -> OpenFile [label="Open itemstock.txt"];
+    OpenFile -> ReadLine [label="File opened successfully"];
+    ReadLine -> CheckRecordStructure [label="Split line into fields"];
+    CheckRecordStructure -> CheckID [label="Valid record (13 fields)"];
+    CheckID -> PopulateFields [label="Item ID matches"];
+    PopulateFields -> UpdateStockStatus [label="Set stock status"];
+    UpdateStockStatus -> ReturnTrue [label="Return true"];
+    ReturnTrue -> End;
+
+    CheckID -> SkipLine [label="Item ID doesn't match"];
+    SkipLine -> ReadLine;
+
+    CheckRecordStructure -> SkipLine [label="Invalid record"];
+    
+    ReadLine -> IOError [label="IOException", style=dashed];
+    IOError -> End;
+
+    ReadLine -> ReturnFalse [label="End of file reached"];
+    ReturnFalse -> End;
+}

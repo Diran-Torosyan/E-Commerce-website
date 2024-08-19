@@ -1,0 +1,10 @@
+digraph CustomerLogin {
+    Start -> OpenFile [label="Open login.txt for writing"];
+    OpenFile -> WriteEmail [label="Write email"];
+    WriteEmail -> WritePassword [label="Write password"];
+    WritePassword -> CloseFile [label="Close file"];
+    CloseFile -> End [label="Login information saved"];
+    
+    OpenFile -> IOError [label="IOException", style=dashed];
+    IOError -> End [label="Error writing to file"];
+}
