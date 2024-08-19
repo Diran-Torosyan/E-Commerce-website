@@ -52,3 +52,15 @@ Items Purchased:
 - Hiking Shoes - $79.99
 - Winter Boots - $95.00
 
+Purchase Time: 2024-08-18 15:16:32
+Email: ww@gmail.com
+Total: $85.99
+Items Purchased:
+- Outdoor Jacket - $85.99
+
+Purchase Time: 2024-08-18 16:52:38
+Email: ww@gmail.com
+Total: $25.00
+Items Purchased:
+- Insulated Mittens - $25.00
+

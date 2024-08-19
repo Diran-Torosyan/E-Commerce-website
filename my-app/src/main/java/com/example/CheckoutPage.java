@@ -23,6 +23,10 @@ public class CheckoutPage extends JFrame {
     private Cart cart;
     private User user;
 
+    public CheckoutPage() {
+
+    }
+
     /**
      * Constructor for CheckoutPage.
      * 
@@ -172,7 +176,7 @@ public class CheckoutPage extends JFrame {
      * @param cardNumber The card number to be validated.
      * @return true if the card number is valid, false otherwise.
      */
-    private boolean isValidCreditCard(String cardNumber) {
+    protected boolean isValidCreditCard(String cardNumber) {
         return cardNumber != null && cardNumber.matches("\\d{16}");
     }
 
